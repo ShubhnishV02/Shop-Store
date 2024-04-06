@@ -20,8 +20,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Static Files -->
-    <link rel="stylesheet" href="/static/storemain.css">
-    <link rel="stylesheet" href="/static/css/LoginandSignup.css">
+    <link rel="stylesheet" href="storemain.css">
+    <link rel="stylesheet" href="LoginandSignup.css">
 
     <title>Signup | Shop Store</title>
 </head>
@@ -30,7 +30,7 @@
 
     <div class="navbar-main">
         <div class="navbar-logo">
-            <a href="{% url 'home' %}"><h1>Shop Store</h1></a>
+            <a href="index.html"><h1>Shop Store</h1></a>
         </div>
 
     </div>
@@ -41,10 +41,10 @@
             
             <div class="right-signup-desc">
                 <div class="desc-quality">
-                    <img src="/static/images/signup.png" alt="">
+                    <img src="signup.png" alt="">
                     <h2 class="slid">Already have an account?</h2>
                     <p class="slid">Sign in to your account to track your orders, manage your addresses and check gift card amounts.</p>
-                    <a href="{% url 'login' %}"><button type="button" class="btn btn-primary slid">Login</button></a> 
+                    <a href="Login.html"><button type="button" class="btn btn-primary slid">Login</button></a> 
                 </div>
             </div>
 
@@ -114,7 +114,7 @@
                     <div class="col-6 col-md-2 mb-3 ">
                         <h4>Links</h4>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="{% url 'home' %}"
+                            <li class="nav-item mb-2"><a href="index.html"
                                     class="nav-link p-0 text-white">Home</a></li>
                             <li class="nav-item mb-2"><a href="{% url 'product' %}"
                                     class="nav-link p-0 text-white">Products</a>

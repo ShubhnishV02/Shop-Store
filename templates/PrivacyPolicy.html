@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block section %}
+
+<div class="container about-us-section">
+    
+    <div class="left-section-about">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Privacy And Policy</li>
+            </ol>
+          </nav>
+
+        <h2>Privacy Policy</h2>
+
+        <p>At Shop Store, we are committed to protecting your privacy and ensuring the security of your personal information. 
+            This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you visit our website or store, 
+            and your choices regarding the collection and use of your information.
+        </p>
+        <hr>
+
+        <h3>Information We Collect:</h3>
+        <ul>
+        <li>Personal Information: When you place an order, we may collect personal information such as your name, email address, phone number, and shipping address.</li>
+        <li>Payment Information: IN FUTURE, We collect payment information when you make a purchase, including credit card details or other payment method information.</li>
+    </ul>
+
+        <hr>
+
+        <h3>How We Use Your Information:</h3>
+<ul>
+        <li>To Process Orders: We use your information to process and fulfill your orders, including shipping and delivery.</li>
+        <li>To Send Promotional Emails: With your consent, we may send you promotional emails about new products, special offers, or other updates.</li>
+        <li>To Improve Our Services: We use your information to analyze website traffic, track user interactions, and improve our products and services.</li>
+</ul>
+        <hr>
+
+        <h3>Information Sharing and Disclosure:</h3>
+        <ul>
+        <li>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as required to fulfill your orders or comply with legal obligations.</li>
+        <li>We may share your information with trusted third-party service providers who assist us in operating our website, conducting business, or servicing you.</li>
+    </ul>
+        <hr>
+
+        <h3>Data Security:</h3>
+
+        <ul>
+            <li>We implement a variety of security measures to protect your personal information, including encryption, secure socket layer (SSL) technology, and regular monitoring of our systems.</li>
+            <li>Despite our best efforts, no method of transmission over the internet or electronic storage is completely secure. Therefore, we cannot guarantee absolute security.</li>
+        </ul>
+        <hr>
+
+        <h3>Your Choices:</h3>
+
+        <ul>
+            <li>You have the right to opt out of receiving promotional emails from us by following the unsubscribe instructions provided in each email.</li>
+            <li>You can choose to disable cookies in your browser settings, although this may affect your browsing experience on our website.</li>
+        </ul>
+        <hr>
+
+        <h3>Updates to Privacy Policy:</h3>
+
+        <ul>
+            <li>We reserve the right to update or modify this Privacy Policy at any time. Any changes will be posted on this page, and the revised policy will be effective immediately upon posting.</li>
+        </ul>
+        <p>By using our website or providing us with your personal information, you consent to the collection, use, and disclosure of your information as described in this Privacy Policy.</p>
+        <p>If you have any questions or concerns about our Privacy Policy, please contact us at shubhnishv01@gmail.com</p>
+        <h5>Last Updated: 30-03-2024</h5>
+        <br>
+        <br>
+
+    </div>
+
+    <div class="right-link-box">
+        <div class="top-links-section">
+            <h3>More Links</h3>
+            <div class="about-right-links">
+                <a href="{% url 'contact' %}" style="text-decoration: none; color: var(--primary-color);"><h4>Contact</h4></a>
+                <a href="{% url 'terms-and-conditions' %}" style="text-decoration: none; color: var(--primary-color);"><h4>Terms and Conditions</h4></a>
+                <a href="{% url 'privacy-policy' %}" style="text-decoration: none; color: var(--primary-color);"><h4 class="active">Privacy and Policy</h4></a>
+                <a href="{% url 'faqs' %}" style="text-decoration: none; color: var(--primary-color);"><h4>FAQs</h4></a>
+            </div>
+
+        </div>
+        <div class="bottom-links-section">
+            <h4>Order Your Products Through Whatsapp:</h4>
+            <a href="" style="color: rgb(2, 220, 2);"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a><br>
+            <a href="" style="color: rgb(0, 170, 255);"><i class="fa fa-phone"></i> +91-8077468568</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

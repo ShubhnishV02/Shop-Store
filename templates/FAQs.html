@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block section %}
+
+<div class="container about-us-section">
+
+    <div class="left-section-about">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">FAQs</li>
+            </ol>
+        </nav>
+
+        <h2>Frequently Asked Questions (FAQs)</h2>
+
+        <p>Welcome to the Shop Store FAQs page. Here, we've compiled answers to some of the common questions our
+            customers ask.
+            If you have a question that's not addressed here, please feel free to contact us, and we'll be happy to
+            assist you.
+        </p>
+        <hr>
+
+        <h3>How can I place an order?</h3>
+        <ul>
+            <li>You can place an order directly on our website by adding items to your cart and proceeding to checkout.
+                Alternatively, you can visit our store in person and make a purchase.</li>
+        </ul>
+
+        <hr>
+
+        <h3>What payment methods do you accept?</h3>
+        <ul>
+            <li>We accept payment via Paytm, PhonePay, UPIs and COD supported by our payment processor.</li>
+        </ul>
+        <hr>
+
+        <h3>How do I track my order?</h3>
+        <ul>
+            <li>Once your order has been shipped, you will receive a tracking number via email. You can use this tracking number to track the status of your delivery.</li>
+        </ul>
+        <hr>
+
+        <h3>What is your return policy?</h3>
+
+        <ul>
+            <li>We accept returns for eligible products within [insert number] days of purchase. Returned items must be unused and in their original packaging. For more information, please refer to our Returns and Refunds policy.</li>
+        </ul>
+        <hr>
+
+        <h3>How can I contact customer support?</h3>
+
+        <ul>
+            <li>You can contact our customer support team by phone at +91 8077468568 or by email at shubhamverma126@gmail.com. Alternatively, you can visit our store in person during business hours.</li>
+        </ul>
+        <hr>
+
+        <h3>Can I place a bulk order for special events or occasions?</h3>
+
+        <ul>
+            <li>Yes, we offer bulk ordering options for special events or occasions. Please contact us directly to discuss your specific requirements and to place a bulk order.</li>
+        </ul>
+        <hr>
+
+        <h3>How can I stay updated on promotions and special offers?</h3>
+
+        <ul>
+            <li>To stay updated on promotions, special offers, and new product arrivals, be sure to follow us on social media platforms like Facebook, Instagram.</li>
+        </ul>
+        <hr>
+
+        <p>If you have any further questions or concerns, please don't hesitate to reach out to us. We're here to help!</p>
+        <h5>Last Updated: 30-03-2024</h5>
+        <br>
+        <br>
+
+    </div>
+
+    <div class="right-link-box">
+        <div class="top-links-section">
+            <h3>More Links</h3>
+            <div class="about-right-links">
+                <a href="{% url 'contact' %}" style="text-decoration: none; color: var(--primary-color);">
+                    <h4>Contact</h4>
+                </a>
+                <a href="{% url 'terms-and-conditions' %}" style="text-decoration: none; color: var(--primary-color);">
+                    <h4>Terms and Conditions</h4>
+                </a>
+                <a href="{% url 'privacy-policy' %}" style="text-decoration: none; color: var(--primary-color);">
+                    <h4>Privacy and Policy</h4>
+                </a>
+                <a href="{% url 'faqs' %}" style="text-decoration: none; color: var(--primary-color);">
+                    <h4 class="active">FAQs</h4>
+                </a>
+            </div>
+
+        </div>
+        <div class="bottom-links-section">
+            <h4>Order Your Products Through Whatsapp:</h4>
+            <a href="" style="color: rgb(2, 220, 2);"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a><br>
+            <a href="" style="color: rgb(0, 170, 255);"><i class="fa fa-phone"></i> +91-8077468568</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

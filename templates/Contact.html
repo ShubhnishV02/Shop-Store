@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block section %}
+
+<div class="container about-us-section">
+
+    <div class="left-section-about">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            </ol>
+        </nav>
+
+        <h2>Contact Us</h2>
+
+        <p>Thank you for your interest in Shop Store! We're here to assist you in any way we can. Please feel free
+            to reach out to us using the contact information provided below:
+        </p>
+
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4 mb-2">
+                <div class="card card-contact">
+                    <h4 class="card-header">Store Address:</h4>
+                    <p>Shop Store,<br>
+                        [Locality]<br>
+                        [Address]<br>
+                        [City, State, Pincode]
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-4 mb-2">
+                <div class="card card-contact">
+                    <h4 class="card-header">Phone Number:</h4>
+                    <p>+91 - 8077468568<br>
+                        [Another Phone Number]
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-4 mb-2">
+                <div class="card card-contact">
+                    <h4 class="card-header">Store Hours</h4>
+                    <p>Morning: 09:00 AM to 01:00 PM <br>
+                        Evening: 04:00 PM to 09:00 PM
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h3>Get in Touch Online:</h3>
+
+        <p>Have a question, feedback, or special request? Fill out the form below, and our dedicated team will get back
+            to you as soon as possible.
+        </p>
+
+        <div class="card contact-form">
+            <form action="">
+                <div class="form-floating">
+                    <input type="text" class="form-control" name="name" placeholder="Enter Your Name">
+                    <label for="floatingInput">Name</label>
+                </div>
+                <div class="form-floating">
+                    <input type="email" class="form-control" name="email" placeholder="xyz@example.com">
+                    <label for="floatingInput">Email</label>
+                </div>
+                <div class="form-floating">
+                    <input type="tel" class="form-control" name="phone" placeholder="9999999999">
+                    <label for="floatingInput">Phone Number</label>
+                </div>
+
+                <div class="form-floating">
+                    <textarea class="form-control" name="textarea" placeholder="Enter Your Comment"></textarea>
+                    <label for="floatingInput">Enter Your Comment</label>
+                </div>
+
+                <button type="button" class="btn btn-primary mt-2 w-100">Submit</button>
+            </form>
+        </div>
+
+
+        <hr>
+
+        <p>Thank you for choosing Shop Store. We look forward to serving you and exceeding your expectations!
+        </p>
+
+
+
+        <br>
+        <br>
+
+    </div>
+
+    <div class="right-link-box">
+        <div class="top-links-section">
+            <h3>More Links</h3>
+            <div class="about-right-links">
+                <a href="{% url 'contact' %}" style="text-decoration: none; color: var(--primary-color);">
+                    <h4 class="active">Contact</h4>
+                </a>
+                <a href="{% url 'terms-and-conditions' %}" style="text-decoration: none; color: var(--primary-color);">
+                    <h4>Terms and Conditions</h4>
+                </a>
+                <a href="{% url 'privacy-policy' %}" style="text-decoration: none; color: var(--primary-color);">
+                    <h4>Privacy and Policy</h4>
+                </a>
+                <a href="{% url 'faqs' %}" style="text-decoration: none; color: var(--primary-color);">
+                    <h4>FAQs</h4>
+                </a>
+            </div>
+
+        </div>
+        <div class="bottom-links-section">
+            <h4>Order Your Products Through Whatsapp:</h4>
+            <a href="" style="color: rgb(2, 220, 2);"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a><br>
+            <a href="" style="color: rgb(0, 170, 255);"><i class="fa fa-phone"></i> +91-8077468568</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

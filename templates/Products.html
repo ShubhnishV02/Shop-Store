@@ -7,102 +7,27 @@
     <div class="product-page-section">
         <div class="category-names">
 
+            {% for item in category %}
+
             <div class="total-catory-list">
-                <a href="">
+                <a href="{% url 'productview' item.slug %}">
                     <div class="left-category-img">
-                        <img src="/static/images/surfexcel.jpg" alt="">
+                        <img src="{{item.image.url}}" alt="">
                     </div>
                     <div class="right-category-desc">
-                        <h5>Detergents</h5>
+                        <h5>{{ item.name }}</h5>
                     </div>
                 </a>
             </div>
-
-            <div class="total-catory-list">
-                <a href="">
-                    <div class="left-category-img">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="right-category-desc">
-                        <h5>Detergents</h5>
-                    </div>
-                </a>
-            </div>
-
-            <div class="total-catory-list">
-                <a href="">
-                    <div class="left-category-img">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="right-category-desc">
-                        <h5>Detergents</h5>
-                    </div>
-                </a>
-            </div>
-
-            <div class="total-catory-list">
-                <a href="">
-                    <div class="left-category-img">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="right-category-desc">
-                        <h5>Detergents</h5>
-                    </div>
-                </a>
-            </div>
-
-            <div class="total-catory-list">
-                <a href="">
-                    <div class="left-category-img">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="right-category-desc">
-                        <h5>Detergents</h5>
-                    </div>
-                </a>
-            </div>
-
-            <div class="total-catory-list">
-                <a href="">
-                    <div class="left-category-img">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="right-category-desc">
-                        <h5>Detergents</h5>
-                    </div>
-                </a>
-            </div>
-
-            <div class="total-catory-list">
-                <a href="">
-                    <div class="left-category-img">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="right-category-desc">
-                        <h5>Detergents</h5>
-                    </div>
-                </a>
-            </div>
-
-            <div class="total-catory-list">
-                <a href="">
-                    <div class="left-category-img">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="right-category-desc">
-                        <h5>Detergents</h5>
-                    </div>
-                </a>
-            </div>
-
-
+            {% endfor %}
 
         </div>
+
 
         <div class="product-listed">
             <div class="right-product-list-heading">
                 <div>
-                    <h5>Buy Dates and Seeds Online</h5>
+                    <h5>Buy Products Online</h5>
                 </div>
                 <div class="sort-by">
                     <label>Sort By</label>
@@ -122,22 +47,31 @@
 
             </div>
             <div class="row">
+
+                {% for item in productdata %}
+
                 <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
+                    <div class="card product_data">
                         <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
+                            <a href="{% url 'product-details' item.category.slug item.slug %}">
+                                <img src="{{item.product_imageMain.url}}" alt="">
+                                <div>
+                                    <h4 style="font-family: 'Roboto', sans-serif;">{{item.ProdName | truncatechars:47}}</h4>
+                                    <span>500 g</span>
+                                    
+
+                                </div>
+                            </a>
                             <h6 class="selling-price">₹400</h6>
                             <span class="original-price">₹600</span>
 
-
                             <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
+                                <div class="quan-left input-group">
+                                    <button type="button" class="input-group-text increment-button">+</button>
+                                    <input type="text" id="quantity" name="quantity" value="1" class="text-center qty-input"
+                                        disabled>
 
-                                    <button type="button" class="plus-minus-button">−</button>
+                                    <button type="button" class="input-group-text decrement-button">−</button>
                                 </div>
                                 <div class="button-right">
                                     <button type="button" class="addtocart-button-in-product">ADD</button>
@@ -148,371 +82,9 @@
                     </div>
                 </div>
 
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
+                {% endfor %}
 
 
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                        <div class="prod-description">
-                            <h4>surfexcel Easy Wash</h4>
-                            <span>500 g</span>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
-
-
-                            <form class="quantity-form-in-prod-listed mb-2 mt-2">
-                                <div class="quan-left">
-                                    <button type="button" class="plus-minus-button">+</button>
-                                    <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled>
-
-                                    <button type="button" class="plus-minus-button">−</button>
-                                </div>
-                                <div class="button-right">
-                                    <button type="button" class="addtocart-button-in-product">ADD</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

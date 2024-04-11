@@ -20,17 +20,3 @@ def TERMSandCONDITIONS(request):
 def FAQS(request):
     return render(request, "FAQs.html")
 
-
-def SINGLEPRODUCT(request):
-    return render(request, "SingleProduct.html")
-
-def PRODUCTS(request):
-    return render(request, "Products.html")
-
-
-
-def LOGIN(request):
-    return render(request, "Login.html")
-
-def SIGNUP(request):
-    return render(request, "Signup.html")

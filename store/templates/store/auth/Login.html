@@ -40,16 +40,17 @@
         <div class="login-section-page">
             <div class="left-login-details-page">
                 <div class="form-body">
-                    <form>
-                        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <h1 class="h3 mb-3 fw-normal">Please Login</h1>
 
                         <div class="form-floating">
-                            <input type="email" class="form-control bord1" id="floatingInput"
-                                placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
+                            <input type="text" class="form-control bord1" id="floatingInput" name="username"
+                                placeholder="Username">
+                            <label for="floatingInput">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control bord2" id="floatingPassword"
+                            <input type="password" class="form-control bord2" id="floatingPassword" name="password"
                                 placeholder="Password">
                             <label for="floatingPassword">Password</label>
                         </div>

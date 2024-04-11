@@ -4,13 +4,13 @@
 <div class="container product-details-section">
     <div class="left-half-for-image">
         <div class="single-img">
-            <img src="/static/images/surfexcel.jpg" alt="product-image">
+            <img src="{{products.product_imageMain.url}}" alt="product-image">
         </div>
         <div class="multiple-images">
-            <img src="/static/images/surfexcel.jpg" alt="product-image" class="main-img">
-            <img src="/static/images/surfexcel.jpg" alt="product-image" class="main-img">
-            <img src="/static/images/surfexcel.jpg" alt="product-image" class="main-img">
-            <img src="/static/images/surfexcel.jpg" alt="product-image" class="main-img">
+            <img src="{{products.product_image2.url}}" alt="product-image" class="main-img">
+            <img src="{{products.product_image3.url}}" alt="product-image" class="main-img">
+            <img src="{{products.product_image4.url}}" alt="product-image" class="main-img">
+            <img src="{{products.product_image5.url}}" alt="product-image" class="main-img">
 
         </div>
 
@@ -18,42 +18,50 @@
     <div class="right-half-for-description">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'home' %}">Detergents</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Surfexcel Easy Wash</li>
+                <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'product' %}" class="text-decoration-none">Products</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{products.ProdName | truncatewords:4 }}</li>
             </ol>
         </nav>
         <div class="product-heading">
-            <h3>Surfexcel Easy Wash Big Pack</h3>
+            <span class="text-secondary text-decoration-underline">{{products.ProdTitle}}</span>
+            <h3>{{products.ProdName}}</h3>
+            {% if products.quantity > 0 %}
+                <label class="badge bg-success">In Stock</label>
+            {% else %}
+                <label class="badge bg-danger">Out Of Stock</label>
+            {% endif %}
         </div>
         <hr>
         <div class="details-of-MRP">
             <div class="pieces-if-any">
-                <span>6 pieces</span>
+                <span>{{products.Unit}}</span>
             </div>
 
 
-            <div class="MRP-and-addtocart-section">
+            <div class="MRP-and-addtocart-section product_data">
                 <div class="left-MRP">
                     <div class="MRP">
-                        <h5>MRP <span class="original-price">₹90</span><span class="selling-price">₹190</span></h5>
-                        <h6 class="price-tag">20% OFF</h6>
+                        <h5>MRP <span class="original-price">₹{{products.original_price}}</span><span class="selling-price">₹{{products.selling_price}}</span></h5>
+                        <h6 class="price-tag">{{products.off_On_Product}}% OFF</h6>
                         <span class="inclusive-of-all-taxes">(Inclusive of all taxes)</span>
                     </div>
                 </div>
                 <div class="middle-quantity">
                     <form class="quantity-form">
                         <label for="quantity">Quantity:</label>
-                        <div>
-                            <button type="button" class="plus-minus-button">+</button>
-                            <input type="number" id="quantity" name="quantity" min="0" max="50" value="0" disabled
+                        <div class="input-group text-center">
+                            <button type="button" class="input-group-text increment-button">+</button>
+                            <input type="text" id="quantity" name="quantity" value="1" class="form-control text-center qty-input" disabled
                                 style="background-color: white; border: 0.5px solid var(--secondary-color); padding-left: 8px;">
-                            <button type="button" class="plus-minus-button">−</button>
+                            <button type="button" class="input-group-text decrement-button">−</button>
                         </div>
                     </form>
                 </div>
                 <div class="right-addtocart">
-                    <button type="button" class="addtocart-button">Add To Cart</button>
+                    {% if products.quantity > 0 %}
+                        <button type="button" class="addtocart-button">Add To Cart</button>
+                    {% endif %}
                 </div>
             </div>
 
@@ -61,17 +69,15 @@
         </div>
         <hr>
         <div class="product-in-details">
-            <h3>Product Details</h3>
+            <h3 style="font-family: 'Roboto', sans-serif;">Product Details</h3>
             <h6>Key Features</h6>
-            <p>Salted peanuts with healthy ingredients</p>
+            <p>{{products.Key_Feature}}</p>
             <h6>Unit</h6>
-            <p>6 Pieces</p>
+            <p>{{products.Unit}}</p>
             <h6>Shelf Life</h6>
-            <p>5 months</p>
-            <h6>Packaging Type</h6>
-            <p>Pack</p>
+            <p>{{products.Shelf_Life}}</p>
             <h6>Colour</h6>
-            <p>Brown</p>
+            <p>{{products.color}}</p>
             <h6>Return Policy</h6>
             <p>The product is non-returnable. For a damaged, defective, expired or incorrect item, you can request a
                 replacement within 24 hours of delivery.
@@ -80,10 +86,9 @@
             <h6>Expiry Date</h6>
             <p>Please refer to the packaging of the product for expiry date.</p>
             <h6>Net Weight</h6>
-            <p>10 g</p>
+            <p>{{products.Net_Weight}}</p>
             <h6>Description</h6>
-            <p>Haldiram's Classic Salted Peanuts, a classic combination of roasted peanuts with the right amount of
-                salt. A perfect crunchy snack to binge on anytime of the day.</p>
+            <p>{{products.Prod_Desc}}</p>
             <h6>Disclaimer</h6>
             <p>Every effort is made to maintain the accuracy of all information. However, actual product packaging and
                 materials may contain more and/or different information. The color of the product displayed in the image

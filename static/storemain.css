@@ -75,7 +75,7 @@
 
 .navbar-links h3 {
     margin: 0 0.5rem;
-    font-size: 22px;
+    font-size: 20px;
     padding: 5px;
     position: relative;
     overflow: hidden;
@@ -114,6 +114,13 @@
     border: 1px solid rgb(251, 207, 112);
     font-weight: 600;
     font-size: 1rem;
+}
+.logout-btn{
+    background-color: transparent !important;
+    border: 0px !important;
+    font-size: 20.5px;
+    color: var(--secondary-color) !important;
+    text-shadow: 1px 1px 3px black;
 }
 
 .cart-button {
@@ -507,6 +514,16 @@
 .category {
     margin: 2.5rem auto;
 }
+.category .desc{
+    width: 96%;
+    color: white;
+    background-color: var(--secondary-color);
+    padding: 4px 10px;
+    margin-bottom: 1rem;
+}
+.category .desc h5{
+    font-size: 16px;
+}
 .category .card{
     width: 102%; 
 }
@@ -560,13 +577,15 @@
 .quantity-form-in-index-page .quan-left{
     width: 62%;
 }
-.quantity-form-in-index-page .quan-left .plus-minus-button{
-    padding: 4.7px 4.2px;
-    padding-bottom: 6px;
+.quantity-form-in-index-page .increment-button{
+    height: 27px;
+}
+.quantity-form-in-index-page .decrement-button{
+    height: 27px;
 }
 .quantity-form-in-index-page .quan-left input{
     width: 38%;
-    padding-left: 8px;
+    height: 27px;
     background-color: white;
     border: 0.4px solid var(--secondary-color);
 }
@@ -584,9 +603,7 @@
     font-weight: 600;
     font-size: 13px;
     border-radius: 5px;
-    /* padding-bottom: 1.2px; */
     border: 0.8px solid #a77509;
-    /* transition: all 0.2s ease; */
 }
 
 .whychooseus {
@@ -766,6 +783,10 @@
     margin-top: 2rem;
 }
 
+.product-heading h3{
+    font-family: "Roboto", sans-serif;
+}
+
 .pieces-if-any span {
     font-size: 13px;
     font-weight: 630;
@@ -782,6 +803,7 @@
 .left-MRP {
     width: 35%;
     border-right: 1px solid #ccc;
+    font-family: "Roboto", sans-serif;
 }
 
 .MRP h5 {
@@ -818,28 +840,25 @@
 }
 
 .middle-quantity {
-    width: 40%;
-    padding: 0 15px;
+    width: 32%;
+    padding: 0 7px;
     padding-top: 0;
     /* margin-bottom: 0.5rem; */
     height: 4.5rem;
     border-right: 1px solid #ccc;
     justify-content: center;
     text-align: center;
+    padding: 0 1.4rem;
 }
 
-.plus-minus-button {
+.increment-button, .decrement-button {
     background-color: #dbdbdb;
     border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.plus-minus-button:first-child {
-    border-right: 0px;
+    padding: 8px;
 }
 
 .right-addtocart {
-    width: 30%;
+    width: 26%;
     margin-left: 24px;
 }
 
@@ -934,10 +953,6 @@
     background-color: white;
 }
 
-.product-listed img {
-    width: 50%;
-    margin: 0.5rem auto;
-}
 .search-products-page{
     display: none;
 }
@@ -971,6 +986,14 @@
 .prod-description {
     padding: 4px 10px;
 }
+.prod-description img{
+    width: 50%;
+    margin: 0.5rem 3rem;
+}
+.prod-description a{
+    text-decoration: none;
+    color: black;
+}
 
 .prod-description .selling-price {
     margin-top: 2rem;
@@ -995,8 +1018,7 @@
     font-weight: 600;
     font-size: 16px;
     border-radius: 5px;
-    padding: 1.1px 15px;
-    padding-bottom: 1.2px;
+    padding: 4.5px 14px;
     border: 1px solid #a77509;
     transition: all 0.2s ease;
 }
@@ -1008,6 +1030,10 @@
 
 .quantity-form-in-prod-listed div input {
     width: 40%;
+    height: 35px;
+}
+.quantity-form-in-prod-listed .increment-button, .decrement-button {
+    height: 35px;
 }
 
 .quan-left {
@@ -1020,6 +1046,52 @@
 }
 
 
+
+
+/* Category Selected Page Section */
+
+.Category-selected-page-section{
+    width: 100%;
+    height: 100%;
+    margin-top: 4.7rem;
+}
+
+.product-listed-Category-Selected{
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #f4f6fb;
+}
+.product-list-headinginCategorySelected{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 0.8rem;
+    background-color: white;
+}
+
+.product-listed-Category-Selected .row{
+    width: 100%;
+    margin: 0.7rem auto;
+}
+.product-listed-Category-Selected .card{
+    width: 103%;
+    border: 1.5px solid #e4e4e4;
+    border-radius: 10px;
+    margin: 0.4rem 4px;
+    padding-left: 0.3rem;
+}
+.product-listed-Category-Selected .card h4{
+    font-size: 15.4px;
+    height: 100%;
+}
+.product-listed-Category-Selected .prod-description img{
+    width: 50%;
+    margin: 0.5rem 4rem;
+}
+.product-listed-Category-Selected .prod-description h6{
+    margin-top: 1.1rem;
+    
+}
 
 
 

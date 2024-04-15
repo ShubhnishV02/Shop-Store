@@ -81,114 +81,12 @@
             {% endif %}
         </div>
 
-        <div id="overlay-cart"></div>
-        <!-- Cart functionality -->
 
         <div class="cart-button">
-            <i class="fa fa-shopping-cart" id="cartbtn"></i>
+            <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart" id="cartbtn"></i></a>
         </div>
 
-        <div class="cart-open-close" id="cart-open-close">
-
-            <div class="cart-section-heading-and-btn">
-                <h4>My Cart</h4>
-                <button type="button" class="btn" id="closeCartbtn"><i class="fa fa-xmark"></i></button>
-            </div>
-
-            <div class="cart-product-list-total">
-                <div class="cart-products-list">
-                    <div class="cartlist-left-image">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="cartlist-medium-desc">
-                        <p>Surfexcel Easy Wash 60g Pack of 2 kdwidsj skjd skjdh</p>
-                        <span>40 g</span>
-                        <h6>₹60</h6>
-                    </div>
-                    <div class="cartlist-right-quantity">
-                        <div class="quan-right-cart">
-                            <span class="plus-minus-button">+</span>
-                            <input type="text" id="quantity" name="quantity" value="0" disabled>
-
-                            <span class="plus-minus-button">−</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart-products-list">
-                    <div class="cartlist-left-image">
-                        <img src="/static/images/surfexcel.jpg" alt="">
-                    </div>
-                    <div class="cartlist-medium-desc">
-                        <p>Surfexcel Easy Wash 60g Pack of 2 kdwidsj skjd skjdh</p>
-                        <span>40 g</span>
-                        <h6>₹60</h6>
-                    </div>
-                    <div class="cartlist-right-quantity">
-                        <div class="quan-right-cart">
-                            <span class="plus-minus-button">+</span>
-                            <input type="text" id="quantity" name="quantity" value="0" disabled>
-
-                            <span class="plus-minus-button">−</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="Cart-Bill-details">
-                <div class="bill-details-heading">
-                    <h6>Bill Details</h6>
-                </div>
-                <div class="itemtotal">
-                    <div class="left-desc-total">
-                        <h6>Item total</h6>
-                    </div>
-                    <div class="right-amount-total">
-                        <span>₹60</span>
-                    </div>
-                </div>
-                <div class="itemtotal">
-                    <div class="left-desc-total">
-                        <h6>Delivery charge</h6>
-                    </div>
-                    <div class="right-amount-total">
-                        <span>₹60</span>
-                    </div>
-                </div>
-                <div class="itemtotal">
-                    <div class="grand-total-cart">
-                        <h6>Grand total</h6>
-                    </div>
-                    <div class="right-grand-total">
-                        <span>₹60</span>
-                    </div>
-                </div>
-                <div class="save-rupees-heading">
-                    <h6>Shop for ₹20 more to save ₹25 on delivery charge</h6>
-                </div>
-            </div>
-
-
-            <div class="cancellation-policy">
-                <h6>Cancellation Policy</h6>
-                <p>Orders cannot be cancelled once packed for delivery. In case of unexpected delays, a refund will be
-                    provided, if applicable.</p>
-            </div>
-
-            <a href="" class="text-decoration-none">
-                <div class="login-on-cart">
-                    <div class="total-on-left-cart">
-                        <h6>₹217</h6>
-                        <span>TOTAL</span>
-                    </div>
-                    <h5>Login to Proceed ></h5>
-                </div>
-            </a>
-        </div>
-
-        <!-- cart functionality ends here -->
-
+        
         <!-- menu button functionality starts here -->
         <div id="overlay-menu"></div>
 
@@ -248,14 +146,36 @@
                     </div>
                 </a>
             </div>
+
+
+
             <div class="login-signup-menu-toggle">
                 <div class="total-division-of-login-signup">
+
+                    {% if request.user.is_authenticated %}
+                    <div class="btn-group dropup">
+                        <h5 class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ request.user }}
+                        </h5>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-dark" href="#">Action</a></li>
+                            <li><a class="dropdown-item text-dark" href="#">Another action</a></li>
+                            <li><a class="dropdown-item text-dark" href="#">Something else here</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-dark" href="{% url 'logoutpage' %}">Logout</a></li>
+                        </ul>
+                    </div>
+                    {% else %}
+
                     <a href="{% url 'loginpage' %}" class="left-login-menu">
                         <h4><i class="fa-solid fa-right-to-bracket"></i> Login</h4>
                     </a>
                     <a href="{% url 'signup' %}" class="right-signup-menu">
                         <h4><i class="fa-solid fa-user-plus"></i> signup</h4>
                     </a>
+                    {% endif %}
                 </div>
             </div>
 

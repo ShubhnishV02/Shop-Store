@@ -15,13 +15,13 @@ def SIGNUP(request):
             messages.success(request, "Registered Successfully! Login to Continue")
             return redirect("/login")
     context = {'form': form}
-    return render(request, "store/auth/Signup.html", context)
+    return render(request, "auth/Signup.html", context)
 
 
 def LOGIN(request):
     if request.user.is_authenticated:           #this if condition is used when user already logged in and try to login again.
         messages.warning(request, "You are already logged in")
-        return redirect("/")
+        return redirect("home")
     else:
         if request.method == "POST":
             name = request.POST.get("username")
@@ -32,15 +32,15 @@ def LOGIN(request):
             if user is not None:
                 login(request,user)
                 messages.success(request, "Login Successfully")
-                return redirect("/")
+                return redirect("home")
             else:
                 messages.error(request, "Invalid Username or Password")
                 return redirect("/login")
-        return render(request, "store/auth/Login.html")
+        return render(request, "auth/Login.html")
     
 
 def LOGOUT(request):
     if request.user.is_authenticated:
         logout(request)
         messages.success(request, "Logged Out Successfully")
-    return redirect("/")
+    return redirect("home")

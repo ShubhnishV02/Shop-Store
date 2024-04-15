@@ -4,15 +4,16 @@ from django.contrib import messages
 from .models import *
 
 
-
 def PRODUCTS(request):
     productdata = Product.objects.filter(status=0)
     category = Category.objects.filter(status=0)
     context = {"category" : category, "productdata" : productdata}
     return render(request, "Products.html" , context)
 
+
 def CATEGORY_SELECTED(request):
     return render(request, "Category_Selection.html")
+
 
 
 def PRODUCTSView(request, slug):
@@ -25,6 +26,8 @@ def PRODUCTSView(request, slug):
         messages.warning(request, "No such category found")
         return redirect("product")
     
+
+
 
 def PRODUCTDETAILS(request, cate_slug, prod_slug):
     if (Category.objects.filter(slug=cate_slug, status=0)):

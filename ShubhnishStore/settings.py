@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(h=ct)uruden-1h&$6-#^*3#taqg(bgcgijow8fb1bts9xqygm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.29.31','127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['192.168.29.31','127.0.0.1', 'localhost', '192.168.1.41']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ShubhnishStore.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR,"templates"],
+        'DIRS': [BASE_DIR, 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

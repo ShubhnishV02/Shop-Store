@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block section %}
+
+<div class="container mt-5">
+    <div class="container-fluid">
+        <div class="cart-section-heading">
+            <h3>My Cart</h3>
+        </div>
+        <section class="cartdata">
+            <div class="row">
+                <div class="col-9">
+                    {% if cart %}
+
+                    {% for item in cart %}
+
+                    <div class="cart-product-list-total">
+                        <div class="cart-products-list product_data">
+                            <div class="cartlist-left-image">
+                                <img src="{{item.product.product_imageMain.url}}" alt="">
+                            </div>
+                            <div class="cartlist-medium-desc">
+                                <p>{{item.product.ProdName | truncatechars:65}}</p>
+                                <span>{{item.product.Net_Weight}}</span>
+                                <h6>₹{{item.product.selling_price}}</h6>
+                            </div>
+                            <input type="hidden" class="prod_id" value="{{ item.product_id }}">
+                            {% csrf_token %}
+                            {% if item.product.quantity >= item.product_qty %}
+                            <div class="cartlist-right-quantity">
+                                <div class="quan-right-cart input-group">
+                                    <span class="input-group-text changeQuantity increment-button">+</span>
+                                    <input type="text" id="quantity" name="quantity" value="{{ item.product_qty }}"
+                                        class="text-center qty-input" disabled>
+                                    <span class="input-group-text changeQuantity decrement-button">−</span>
+                                </div>
+                            </div>
+                            <div class="totalpriceheading-price">
+                                <h6>Total</h6>
+                                <span>₹190</span>
+                            </div>
+                            <button type="button" class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i>
+                                Remove</button>
+                            {% else %}
+                            <h6 class="text-danger">Out Of Stock</h6>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    
+                </div>
+
+                <div class="col-3">
+                    <div class="Cart-Bill-details">
+                        <div class="bill-details-heading">
+                            <h6>Bill Details</h6>
+                        </div>
+                        <div class="itemtotal">
+                            <div class="left-desc-total">
+                                <h6>Item total</h6>
+                            </div>
+                            <div class="right-amount-total">
+                                <span>₹60</span>
+                            </div>
+                        </div>
+                        <div class="itemtotal">
+                            <div class="left-desc-total">
+                                <h6>Delivery charge</h6>
+                            </div>
+                            <div class="right-amount-total">
+                                <span>₹60</span>
+                            </div>
+                        </div>
+                        <div class="itemtotal">
+                            <div class="grand-total-cart">
+                                <h6>Grand total</h6>
+                            </div>
+                            <div class="right-grand-total">
+                                <span>₹60</span>
+                            </div>
+                        </div>
+                        <div class="save-rupees-heading">
+                            <h6>Shop for ₹20 more to save ₹25 on delivery charge</h6>
+                        </div>
+                    </div>
+
+                    <div class="cancellation-policy">
+                        <h6>Cancellation Policy</h6>
+                        <p>Orders cannot be cancelled once packed for delivery. In case of unexpected delays, a
+                            refund
+                            will
+                            be
+                            provided, if applicable.</p>
+                    </div>
+                    <div class="button-place-order">
+                        <button type="button" class="btn btn-primary">Place Order</button>
+                    </div>
+
+
+
+                    {% else %}
+                    <div class="cancellation-policy">
+                        <h5>Your Cart is Empty</h5>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

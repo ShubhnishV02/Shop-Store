@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block section %}
-<div class="container product-details-section">
+<div class="container product-details-section product_data">
     <div class="left-half-for-image">
         <div class="single-img">
             <img src="{{products.product_imageMain.url}}" alt="product-image">
@@ -39,7 +39,7 @@
             </div>
 
 
-            <div class="MRP-and-addtocart-section product_data">
+            <div class="MRP-and-addtocart-section">
                 <div class="left-MRP">
                     <div class="MRP">
                         <h5>MRP <span class="original-price">₹{{products.original_price}}</span><span class="selling-price">₹{{products.selling_price}}</span></h5>
@@ -49,6 +49,8 @@
                 </div>
                 <div class="middle-quantity">
                     <form class="quantity-form">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ products.id }}" class="prod_id" >
                         <label for="quantity">Quantity:</label>
                         <div class="input-group text-center">
                             <button type="button" class="input-group-text increment-button">+</button>
@@ -60,7 +62,7 @@
                 </div>
                 <div class="right-addtocart">
                     {% if products.quantity > 0 %}
-                        <button type="button" class="addtocart-button">Add To Cart</button>
+                        <button type="button" class="addtocart-button addToCart_btn">Add To Cart</button>
                     {% endif %}
                 </div>
             </div>

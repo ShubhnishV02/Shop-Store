@@ -86,16 +86,16 @@
                         <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
                         <br>
                         {% if form.errors.password2 %}
-                            <p id="error-message-login-signup text-danger">{{form.errors.password2}}</p>
+                            <p class="error-message-login-signup">{{form.errors.password2}}</p>
                         {% endif %}
                         {% if form.errors.password1 %}
-                            <p id="error-message-login-signup text-danger">{{form.errors.password1}}</p>
+                            <p class="error-message-login-signup">{{form.errors.password1}}</p>
                         {% endif %}
                         {% if form.errors.email %}
-                            <p id="error-message-login-signup text-danger">{{form.errors.email}}</p>
+                            <p class="error-message-login-signup">{{form.errors.email}}</p>
                         {% endif %}
                         {% if form.errors.username %}
-                            <p id="error-message-login-signup text-danger">{{form.errors.username}}</p>
+                            <p class="error-message-login-signup">{{form.errors.username}}</p>
                         {% endif %}
                     </form>
                 </div>

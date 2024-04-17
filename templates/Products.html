@@ -58,18 +58,24 @@
                                 <div>
                                     <h4 style="font-family: 'Roboto', sans-serif;">{{item.ProdName | truncatechars:47}}
                                     </h4>
-                                    <span>500 g</span>
+                                    <span>{{item.Net_Weight}}</span>
 
 
                                 </div>
                             </a>
-                            <h6 class="selling-price">₹400</h6>
-                            <span class="original-price">₹600</span>
+                            <h6 class="selling-price">₹{{item.selling_price}}</h6>
+                            {% if item.selling_price != item.original_price %}
+                              
+                            <span class="original-price">₹{{item.original_price}}</span>
+                            {% else %}
+                            <p class="py-2"></p>
+                            {% endif %}
+                            
 
                             <form class="quantity-form-in-prod-listed mb-2 mt-2">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ item.id }}" class="prod_id">
                                 <div class="quan-left input-group">
-                                    {% csrf_token %}
-                                    <input type="hidden" value="{{ item.id }}" class="prod_id">
                                     <button type="button" class="input-group-text increment-button">+</button>
                                     <input type="text" id="quantity" name="quantity" value="1"
                                         class="text-center qty-input" disabled>

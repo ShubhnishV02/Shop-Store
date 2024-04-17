@@ -10,9 +10,9 @@
         <section class="cartdata">
             <div class="row">
                 <div class="col-9">
-                    {% if cart %}
+                    {% if cartitems %}
 
-                    {% for item in cart %}
+                    {% for item in cartitems %}
 
                     <div class="cart-product-list-total">
                         <div class="cart-products-list product_data">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="totalpriceheading-price">
                                 <h6>Total</h6>
-                                <span>₹190</span>
+                                <span>₹{{item.total_price}}</span>
                             </div>
                             <button type="button" class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i>
                                 Remove</button>
@@ -61,7 +61,7 @@
                                 <h6>Item total</h6>
                             </div>
                             <div class="right-amount-total">
-                                <span>₹60</span>
+                                <span>₹{{grand_total}}</span>
                             </div>
                         </div>
                         <div class="itemtotal">
@@ -69,7 +69,7 @@
                                 <h6>Delivery charge</h6>
                             </div>
                             <div class="right-amount-total">
-                                <span>₹60</span>
+                                <span>₹{{delivery_charge}}</span>
                             </div>
                         </div>
                         <div class="itemtotal">
@@ -77,12 +77,24 @@
                                 <h6>Grand total</h6>
                             </div>
                             <div class="right-grand-total">
-                                <span>₹60</span>
+                                {% if grand_total < 200 %}
+                                  
+                                <span>₹{{grand_total | add:60}}</span>
+                                {% else %}
+                                <span>₹{{grand_total}}</span>
+                                {% endif %}
                             </div>
                         </div>
-                        <div class="save-rupees-heading">
-                            <h6>Shop for ₹20 more to save ₹25 on delivery charge</h6>
+                        {% if shop_for_more == 0 %}
+                          
+                        <div class="save-rupees-heading d-none">   
+                            <h6>Shop for ₹{{shop_for_more}} more to save ₹60 on delivery charge</h6>
                         </div>
+                        {% else %}
+                        <div class="save-rupees-heading">   
+                            <h6>Shop for ₹{{shop_for_more}} more to save ₹60 on delivery charge</h6>
+                        </div>
+                        {% endif %}
                     </div>
 
                     <div class="cancellation-policy">
@@ -94,7 +106,7 @@
                             provided, if applicable.</p>
                     </div>
                     <div class="button-place-order">
-                        <button type="button" class="btn btn-primary">Place Order</button>
+                        <a href="{% url 'checkout' %}"><button type="button" class="btn btn-success">Checkout</button></a>
                     </div>
 
 

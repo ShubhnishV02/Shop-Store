@@ -55,8 +55,29 @@ def DELETEcartitem(request):
             return JsonResponse({'status': 'Deleted Successfully'})
     return redirect('home')
 
+
 @login_required(login_url='loginpage')
-def CART(request):
-    cart = Cart.objects.filter(user=request.user)  
-    context = { 'cart': cart }
+def CART(request):    
+    cartitems = Cart.objects.filter(user=request.user)
+    grand_total = 0
+    delivery_charge = 0
+    shop_for_more = 0
+    for item in cartitems:
+        total_price = item.product.selling_price * item.product_qty
+        item.total_price = total_price
+        grand_total += total_price
+        if grand_total < 200 :
+            delivery_charge = 60
+            shop_for_more = 200 - grand_total
+        else:
+            delivery_charge = 0
+            shop_for_more = 0
+
+
+    context = {
+        'cartitems':cartitems, 
+        'grand_total':grand_total,
+        'delivery_charge':delivery_charge,
+        'shop_for_more':shop_for_more,
+    }
     return render(request, "auth/Cart.html", context)

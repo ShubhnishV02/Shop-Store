@@ -42,20 +42,33 @@
             <div class="MRP-and-addtocart-section">
                 <div class="left-MRP">
                     <div class="MRP">
-                        <h5>MRP <span class="original-price">₹{{products.original_price}}</span><span class="selling-price">₹{{products.selling_price}}</span></h5>
-                        <h6 class="price-tag">{{products.off_On_Product}}% OFF</h6>
+                        <h5>MRP 
+                            {% if products.selling_price == products.original_price %}
+                                <span class=""></span>
+                                {% else %}
+                                <span class="original-price">
+                                    ₹{{products.original_price | stringformat:"d" }}</span>
+                                {% endif %}
+                                <span class="selling-price">₹
+                                    {{products.selling_price | stringformat:"d" }}</span></h5>
+                        
+
+                                    {% if products.off_On_Product %}
+                                    <h6 class="price-tag">{{products.off_On_Product}}</h6>
+                                    {% else %}
+                                    <span class="d-none"></span>
+                                    {% endif %}
                         <span class="inclusive-of-all-taxes">(Inclusive of all taxes)</span>
                     </div>
                 </div>
                 <div class="middle-quantity">
-                    <form class="quantity-form">
+                    <form class="quantity-form single-product-inc-dec-btn">
                         {% csrf_token %}
                         <input type="hidden" value="{{ products.id }}" class="prod_id" >
                         <label for="quantity">Quantity:</label>
                         <div class="input-group text-center">
                             <button type="button" class="input-group-text increment-button">+</button>
-                            <input type="text" id="quantity" name="quantity" value="1" class="form-control text-center qty-input" disabled
-                                style="background-color: white; border: 0.5px solid var(--secondary-color); padding-left: 8px;">
+                            <input type="text" id="quantity" name="quantity" value="1" class="form-control text-center qty-input" disabled>
                             <button type="button" class="input-group-text decrement-button">−</button>
                         </div>
                     </form>

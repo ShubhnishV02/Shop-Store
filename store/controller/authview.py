@@ -13,7 +13,7 @@ def SIGNUP(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Registered Successfully! Login to Continue")
-            return redirect("/login")
+            return redirect("loginpage")
     context = {'form': form}
     return render(request, "auth/Signup.html", context)
 
@@ -35,7 +35,7 @@ def LOGIN(request):
                 return redirect("home")
             else:
                 messages.error(request, "Invalid Username or Password")
-                return redirect("/login")
+                return redirect("loginpage")
         return render(request, "auth/Login.html")
     
 

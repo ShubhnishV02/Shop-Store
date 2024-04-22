@@ -62,10 +62,13 @@ def CART(request):
     grand_total = 0
     delivery_charge = 0
     shop_for_more = 0
+    out_of_stock = False    # Initialize the variable to False
     for item in cartitems:
         total_price = item.product.selling_price * item.product_qty
         item.total_price = total_price
         grand_total += total_price
+        if item.product.quantity < item.product_qty:
+            out_of_stock = True  # Set out_of_stock to True if any product is out of stock
         if grand_total < 200 :
             delivery_charge = 60
             shop_for_more = 200 - grand_total
@@ -79,5 +82,7 @@ def CART(request):
         'grand_total':grand_total,
         'delivery_charge':delivery_charge,
         'shop_for_more':shop_for_more,
+        'out_of_stock': out_of_stock,  # Pass out_of_stock to the template
+        'title': 'MyCart | Shop Store'
     }
     return render(request, "auth/Cart.html", context)

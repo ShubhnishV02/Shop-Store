@@ -12,7 +12,7 @@
 
                 <p>Discover a curated selection of daily raashan, cleaning essentials,
                     and irresistible snacks. Shop now for convenience and quality delivered to your doorstep!</p>
-                <button class="btn btn-primary">Explore More</button>
+                <a href="{% url 'product' %}"><button class="btn btn-primary">Explore More</button></a>
             </div>
             <div class="right-image">
                 <img src="/static/images/mainillustration.png" alt="">
@@ -122,7 +122,7 @@
             <div class="container category">
                 <div class="row">
                     {% for item in productdata %}
-                    {% if item.tag != 'Festival' %}
+                    {% if item.tag != 'Festival' and item.quantity > 0 %}
 
                     <div class="col-6 col-md-2 col-lg-2 mb-3">
 

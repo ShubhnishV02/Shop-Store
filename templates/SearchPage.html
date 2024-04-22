@@ -6,11 +6,12 @@
 <div class="container">
     <div class="Category-selected-page-section">
 
-        {% if products %}
+        {% if results %}
+
         <div class="product-listed-Category-Selected">
             <div class="product-list-headinginCategorySelected">
                 <div>
-                    <h5>Buy {{category_name.name}} Online</h5>
+                    <h5>Search Results For : {{ query }}</h5>
                 </div>
                 <div class="sort-by">
                     <label>Sort By</label>
@@ -23,21 +24,20 @@
                 </div>
             </div>
 
-            
+
             <div class="row container">
 
-                {% for item in products %}
+                {% for item in results %}
 
                 {% if item.quantity > 0 %}
-                  
+
                 <div class="col-6 col-md-3 col-lg-3">
-                    <div class="card product_data">
+                    <div class="card product_data pb-0">
                         <div class="prod-description">
                             <a href="{% url 'product-details' item.category.slug item.slug %}">
                                 <img src="{{item.product_imageMain.url}}" alt="">
                                 <div>
-                                    <h4 style="font-family: 'Roboto', sans-serif;">
-                                        {{item.ProdName | truncatechars:55}}
+                                    <h4 style="font-family: 'Roboto', sans-serif;">{{item.ProdName | truncatechars:55}}
                                     </h4>
                                     <span>{{item.Net_Weight}}</span>
                                 </div>
@@ -69,11 +69,12 @@
                     </div>
                 </div>
                 {% endif %}
-
                 {% endfor %}
+                
 
+                {% for item in results %}
 
-                {% for item in out_of_stock_products %}
+                {% if item.quantity <= 0 %}
 
                 <div class="col-6 col-md-3 col-lg-3">
                     <div class="card product_data pb-5">
@@ -102,30 +103,31 @@
 
                             <span class="original-price">₹{{item.original_price}}</span>
                             {% else %}
-                            <p class="py-md-2 py-0"></p>
+                            <p class="py-2"></p>
                             {% endif %}
 
                             <p class="pb-5 pb-md-0 pb-lg-0"></p>
 
                         </div>
                     </div>
-                </div>
+                </div> 
+
+
+                {% endif %}
 
                 {% endfor %}
 
-
-
-
-
             </div>
         </div>
+
         {% else %}
         <div class="noProductfound">
-            <h1>Coming Soon!</h1>
-            <h4 class="animated-text-in-cate-selection">No products available in this category yet. Check back soon!</h4>
+            <h1>OOPS !</h1>
+            <h4 class="animated-text-in-cate-selection">No products found related to your search</h4>
         </div>
 
         {% endif %}
+
     </div>
     <br>
     <br>

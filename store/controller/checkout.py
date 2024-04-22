@@ -35,7 +35,8 @@ def CHECKOUT(request):
         'item_total_price':item_total_price,
         'grand_total':grand_total,
         'delivery_charge':delivery_charge,
-        'userprofile': userprofile
+        'userprofile': userprofile,
+        'title': 'Checkout | Shop Store'
     }
     return render(request, "UserOrder/Checkout.html", context)
 

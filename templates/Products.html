@@ -50,12 +50,17 @@
 
                 {% for item in productdata %}
 
+                {% if item.quantity > 0 %}
+
                 <div class="col-6 col-md-3 col-lg-3">
                     <div class="card product_data">
                         <div class="prod-description">
-                            <a href="{% url 'product-details' item.category.slug item.slug %}">
-                                <img src="{{item.product_imageMain.url}}" alt="">
-                                <div>
+
+                            <a href="{% url 'product-details' item.category.slug item.slug %}"
+                                class="text-center text-decoration-none">
+                                <img src="{{item.product_imageMain.url}}" alt=""
+                                    class="text-center out-of-stock-on-image">
+                                <div class="text-start">
                                     <h4 style="font-family: 'Roboto', sans-serif;">{{item.ProdName | truncatechars:47}}
                                     </h4>
                                     <span>{{item.Net_Weight}}</span>
@@ -65,12 +70,11 @@
                             </a>
                             <h6 class="selling-price">₹{{item.selling_price}}</h6>
                             {% if item.selling_price != item.original_price %}
-                              
+
                             <span class="original-price">₹{{item.original_price}}</span>
                             {% else %}
                             <p class="py-2"></p>
                             {% endif %}
-                            
 
                             <form class="quantity-form-in-prod-listed mb-2 mt-2">
                                 {% csrf_token %}
@@ -86,13 +90,53 @@
                                     <button type="button" class="addtocart-button-in-product addToCart_btn">ADD</button>
                                 </div>
                             </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% endfor %}
+
+
+
+                {% for item in out_of_stock_products %}
+
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="card product_data pb-5">
+                        <div class="prod-description">
+                            {% if item.quantity > 0 %}
+                            <div class="overlay-image-none"></div>
+                            {% else %}
+                            <div class="overlay-image"></div>
+
+                            {% endif %}
+
+                            <a href="{% url 'product-details' item.category.slug item.slug %}"
+                                class="text-center text-decoration-none">
+                                <img src="{{item.product_imageMain.url}}" alt=""
+                                    class="text-center out-of-stock-on-image">
+                                <div class="text-start">
+                                    <h4 style="font-family: 'Roboto', sans-serif;">{{item.ProdName | truncatechars:47}}
+                                    </h4>
+                                    <span>{{item.Net_Weight}}</span>
+
+
+                                </div>
+                            </a>
+                            <h6 class="selling-price">₹{{item.selling_price}}</h6>
+                            {% if item.selling_price != item.original_price %}
+
+                            <span class="original-price">₹{{item.original_price}}</span>
+                            {% else %}
+                            <p class="py-2"></p>
+                            {% endif %}
 
                         </div>
                     </div>
                 </div>
 
                 {% endfor %}
-
 
             </div>
         </div>

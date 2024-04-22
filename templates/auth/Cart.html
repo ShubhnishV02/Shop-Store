@@ -9,49 +9,55 @@
         </div>
         <section class="cartdata">
             <div class="row">
-                <div class="col-9">
+                <div class="col-12 col-md-9 col-lg-9">
                     {% if cartitems %}
 
                     {% for item in cartitems %}
 
                     <div class="cart-product-list-total">
                         <div class="cart-products-list product_data">
-                            <div class="cartlist-left-image">
-                                <img src="{{item.product.product_imageMain.url}}" alt="">
-                            </div>
-                            <div class="cartlist-medium-desc">
-                                <p>{{item.product.ProdName | truncatechars:65}}</p>
-                                <span>{{item.product.Net_Weight}}</span>
-                                <h6>₹{{item.product.selling_price}}</h6>
-                            </div>
-                            <input type="hidden" class="prod_id" value="{{ item.product_id }}">
-                            {% csrf_token %}
-                            {% if item.product.quantity >= item.product_qty %}
-                            <div class="cartlist-right-quantity">
-                                <div class="quan-right-cart input-group">
-                                    <span class="input-group-text changeQuantity increment-button">+</span>
-                                    <input type="text" id="quantity" name="quantity" value="{{ item.product_qty }}"
-                                        class="text-center qty-input" disabled>
-                                    <span class="input-group-text changeQuantity decrement-button">−</span>
+                            <div class="cart-product-mobile-design">
+                                <div class="cartlist-left-image">
+                                    <img src="{{item.product.product_imageMain.url}}" alt="">
+                                </div>
+                                <div class="cartlist-medium-desc">
+                                    <p>{{item.product.ProdName | truncatechars:65}}</p>
+                                    <span>{{item.product.Net_Weight}}</span>
+                                    <h6>₹{{item.product.selling_price}}</h6>
                                 </div>
                             </div>
-                            <div class="totalpriceheading-price">
-                                <h6>Total</h6>
-                                <span>₹{{item.total_price}}</span>
-                            </div>
-                            <button type="button" class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i>
-                                Remove</button>
-                            {% else %}
-                            <h6 class="text-danger">Out Of Stock</h6>
-                            {% endif %}
+                            <div class="quantity-totalprice-removebtn">
+                                <input type="hidden" class="prod_id" value="{{ item.product_id }}">
+                                {% csrf_token %}
+                                {% if item.product.quantity >= item.product_qty %}
+                                <div class="cartlist-right-quantity">
+                                    <div class="quan-right-cart input-group">
+                                        <span class="input-group-text changeQuantity increment-button">+</span>
+                                        <input type="text" id="quantity" name="quantity" value="{{ item.product_qty }}"
+                                            class="text-center qty-input" disabled>
+                                        <span class="input-group-text changeQuantity decrement-button">−</span>
+                                    </div>
+                                </div>
+                                <div class="totalpriceheading-price">
+                                    <h6>Total</h6>
+                                    <span>₹{{item.total_price}}</span>
+                                </div>
+                                {% else %}
+
+                                <h6 class="text-danger mx-5 px-1 px-md-5">Out Of Stock</h6>
+                                {% endif %}
+                                <button type="button" class="btn btn-danger delete-cart-item"><i
+                                        class="fa fa-trash"></i>
+                                    Remove</button>
+                                </div>
                         </div>
                     </div>
                     {% endfor %}
 
-                    
+
                 </div>
 
-                <div class="col-3">
+                <div class="col-12 col-md-3 col-lg-3">
                     <div class="Cart-Bill-details">
                         <div class="bill-details-heading">
                             <h6>Bill Details</h6>
@@ -77,21 +83,19 @@
                                 <h6>Grand total</h6>
                             </div>
                             <div class="right-grand-total">
-                                {% if grand_total < 200 %}
-                                  
-                                <span>₹{{grand_total | add:60}}</span>
-                                {% else %}
-                                <span>₹{{grand_total}}</span>
-                                {% endif %}
+                                {% if grand_total < 200 %} <span>₹{{grand_total | add:60}}</span>
+                                    {% else %}
+                                    <span>₹{{grand_total}}</span>
+                                    {% endif %}
                             </div>
                         </div>
                         {% if shop_for_more == 0 %}
-                          
-                        <div class="save-rupees-heading d-none">   
+
+                        <div class="save-rupees-heading d-none">
                             <h6>Shop for ₹{{shop_for_more}} more to save ₹60 on delivery charge</h6>
                         </div>
                         {% else %}
-                        <div class="save-rupees-heading">   
+                        <div class="save-rupees-heading">
                             <h6>Shop for ₹{{shop_for_more}} more to save ₹60 on delivery charge</h6>
                         </div>
                         {% endif %}
@@ -106,7 +110,14 @@
                             provided, if applicable.</p>
                     </div>
                     <div class="button-place-order">
-                        <a href="{% url 'checkout' %}"><button type="button" class="btn btn-success">Checkout</button></a>
+                        {% if out_of_stock %}
+                        <div class="card checkout-btn-message">
+                            <h6>Remove the Products which is OUT OF STOCK<br><span>Then the Checkout Button is Visible</span></h6>
+                        </div>
+                        {% else %}
+                        <a href="{% url 'checkout' %}"><button type="button"
+                                class="btn btn-success">Checkout</button></a>
+                        {% endif %}
                     </div>
 
 

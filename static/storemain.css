@@ -677,6 +677,9 @@
     margin: 2.6rem auto;
     line-height: 2.7;
 }
+.whychooseus .col-12 {
+    border-right: 1px solid #ccc;
+}
 
 .whychooseus p {
     line-height: 1.4;
@@ -703,6 +706,9 @@
     font-size: 1.5rem !important;
 }
 
+.bigbasket{
+    font-size: 9.5px;
+}
 
 
 .about-us-section {
@@ -1827,6 +1833,16 @@
         line-height: 2.7;
     }
 
+    .whychooseus .col-12 {
+        border-right: 0px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 2rem;
+    }
+    .whychooseus .col-12:last-child {
+        border-bottom: 0px solid #ccc;
+        padding-bottom: 0rem;
+    }
+
     .whychooseus p {
         line-height: 1.4;
     }
@@ -1855,6 +1871,10 @@
 
     .footer span {
         font-size: 12px;
+    }
+
+    .bigbasket{
+        font-size: 8.7px !important;
     }
 
 

@@ -16,7 +16,7 @@ def home(request):
     shuffled_categories = list(category)                         # this is used to show the random category products on the home page
     random.shuffle(shuffled_categories)
 
-    context = {"category" : shuffled_categories[:6], "productdata" : shuffled_products[:18] , 'title': 'Homepage | Shop Store'}
+    context = {"category" : shuffled_categories[:6], "productdata" : shuffled_products[:19] , 'title': 'Homepage | Shop Store'}
     return render(request, "index.html" , context)
 
 

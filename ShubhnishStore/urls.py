@@ -23,11 +23,6 @@ from ShubhnishStore import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
-    path('about/', views.ABOUT, name="about"),
-    path('contact/', views.CONTACT, name="contact"),
-    path('privacy-policy/', views.PRIVACYPOLICY, name="privacy-policy"),
-    path('terms-and-conditions/', views.TERMSandCONDITIONS, name="terms-and-conditions"),
-    path('faqs/', views.FAQS, name="faqs"),
 
 
     path('', include('store.urls')),

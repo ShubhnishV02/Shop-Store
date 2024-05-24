@@ -20,68 +20,7 @@
         </div>
 
 
-        <!-- Hidden for sometime -->
-
-        <!-- <div class="shop-by-category">
-            <div class="heading">
-                <span>Festival Shopping</span>
-                <h1>Festival Category</h1>
-                <hr style="width: 10%; margin: 1.3rem auto;">
-            </div>
-
-            <div class="container festival">
-                <div class="festival-container">
-                    <div class="left-desc">
-                        <h2>Embrace the Colors of Joy: Celebrate Holi with Shop Store!</h2>
-                        <p>Step into a world of vibrant hues and festive cheer as we bring you everything you need
-                            to make
-                            this Holi a truly unforgettable experience. From organic gulal to aromatic sweets,
-                            immerse yourself
-                            in the spirit of the festival of colors with Shop Store. Let's paint the town in
-                            happiness together!</p>
-                    </div>
-                    <div class="right-image-festival">
-                        <img src="static/images/holi.jpg" alt="holi-image">
-                    </div>
-                </div>
-                <div class="row">
-                    {% for item in productdata %}
-                    {% if item.tag == "Festival" %}
-
-
-                    <div class="col-6 col-md-2 col-lg-2 mb-3">
-                        <div class="card product_data">
-                            <a href="{% url 'product-details' item.category.slug item.slug %}"
-                                class="text-center text-decoration-none">
-                                <img src="{{item.product_imageMain.url}}" alt="">
-                            </a>
-                            <div class="descProduct-indexPage">
-                                <h5>{{item.ProdName | truncatechars:38}}</h5>
-                                <span>{{item.Net_Weight}}</span>
-                                <h6 class="selling-price">₹{{item.selling_price}} <span
-                                        class="original-price">₹{{item.original_price}}</span></h6>
-                                <form class="quantity-form-in-index-page mb-2 mt-2">
-                                    {% csrf_token %}
-                                    <input type="hidden" value="{{ item.id }}" class="prod_id">
-                                    <div class="quan-left input-group">
-                                        <button type="button" class="input-group-text increment-button">+</button>
-                                        <input type="text" id="quantity" name="quantity" value="1"
-                                            class="text-center qty-input" disabled>
-                                        <button type="button" class="input-group-text decrement-button">−</button>
-                                    </div>
-                                    <div class="button-right">
-                                        <button type="button" class="addtocart-btn-index addToCart_btn">ADD</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-
-                </div>
-            </div>
-        </div> -->
+        
 
 
 

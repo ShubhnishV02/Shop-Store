@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(h=ct)uruden-1h&$6-#^*3#taqg(bgcgijow8fb1bts9xqygm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.29.31','127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -119,12 +119,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-# Added Manually
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-
-
-MEDIA_DIR = '/media/',
-MEDIA_Root = 'media'

@@ -53,10 +53,10 @@
             <a href="{% url 'product' %}" class="{% if request.path == '/product/' %} active {% endif %}">
                 <h3>Products</h3>
             </a>
-            <a href="{% url 'about' %}" class="{% if request.path == '/about/' %} active {% endif %}">
+            <a href="#" class="{% if request.path == '/about/' %} active {% endif %}">
                 <h3>About</h3>
             </a>
-            <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %} active {% endif %}">
+            <a href="#" class="{% if request.path == '/contact/' %} active {% endif %}">
                 <h3>Contact</h3>
             </a>
 
@@ -78,17 +78,17 @@
                     {{ request.user }}
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item text-dark" href="{% url 'myorders' %}">My Orders</a></li>
-                    <li><a class="dropdown-item text-dark" href="{% url 'faqs' %}">FAQs</a></li>
+                    <li><a class="dropdown-item text-dark" href="">My Orders</a></li>
+                    <li><a class="dropdown-item text-dark" href="">FAQs</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item text-dark" href="{% url 'logoutpage' %}">Logout</a></li>
+                    <li><a class="dropdown-item text-dark" href="">Logout</a></li>
                 </ul>
             </div>
             {% else %}
-            <a href="{% url 'loginpage' %}"><button type="button">Login</button></a>
-            <a href="{% url 'signup' %}"><button type="button">Signup</button></a>
+            <a href=""><button type="button">Login</button></a>
+            <a href=""><button type="button">Signup</button></a>
             {% endif %}
         </div>
 
@@ -127,32 +127,32 @@
                         <h5>Products</h5>
                     </div>
                 </a>
-                <a href="{% url 'about' %}">
+                <a href="#">
                     <div class="menu-link-single">
                         <i class="fa-regular fa-user"></i>
                         <h5>About</h5>
                     </div>
                 </a>
-                <a href="{% url 'contact' %}">
+                <a href="#">
                     <div class="menu-link-single">
                         <i class="fa fa-phone"></i>
                         <h5>Contact</h5>
                     </div>
                 </a>
                 <hr>
-                <a href="{% url 'privacy-policy' %}">
+                <a href="#">
                     <div class="menu-link-single">
                         <i class="fa-solid fa-shield-halved"></i>
                         <h5>Privacy Policy</h5>
                     </div>
                 </a>
-                <a href="{% url 'terms-and-conditions' %}">
+                <a href="#">
                     <div class="menu-link-single">
                         <i class="fa-solid fa-scroll"></i>
                         <h5>Terms & Conditions</h5>
                     </div>
                 </a>
-                <a href="{% url 'faqs' %}">
+                <a href="#">
                     <div class="menu-link-single">
                         <i class="fa-regular fa-circle-question"></i>
                         <h5>FAQs</h5>
@@ -176,20 +176,20 @@
                             {{ request.user }}
                         </h5>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item text-dark" href="{% url 'myorders' %}">My Orders</a></li>
-                            <li><a class="dropdown-item text-dark" href="{% url 'faqs' %}">FAQs</a></li>
+                            <li><a class="dropdown-item text-dark" href="#">My Orders</a></li>
+                            <li><a class="dropdown-item text-dark" href="#">FAQs</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item text-dark" href="{% url 'logoutpage' %}">Logout</a></li>
+                            <li><a class="dropdown-item text-dark" href="">Logout</a></li>
                         </ul>
                     </div>
                     {% else %}
 
-                    <a href="{% url 'loginpage' %}" class="left-login-menu">
+                    <a href="" class="left-login-menu">
                         <h4><i class="fa-solid fa-right-to-bracket"></i> Login</h4>
                     </a>
-                    <a href="{% url 'signup' %}" class="right-signup-menu">
+                    <a href="" class="right-signup-menu">
                         <h4><i class="fa-solid fa-user-plus"></i> signup</h4>
                     </a>
                     {% endif %}
